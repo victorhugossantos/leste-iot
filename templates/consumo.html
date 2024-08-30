@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <div class="historico">
+        <div class="lista">
+            <table class="table">
+                <thead>
+                    <tr class="fixed-row">
+                        <th>DATA</th>
+                        <th>DOWNLOAD (MB)</th>
+                        <th>UPLOAD (MB)</th>
+                    </tr>
+                </thead>
+                <tbody class="tbody">
+                    {% for total in totais %}
+                    <tr>
+                        <th>{{total['Data']}}</th>
+                        <td>{{ "%.2f" | format(total['Total Download (MB)']) }}</td>
+                        <td>{{ "%.2f" | format(total['Total Upload (MB)']) }}</td>
+                    </tr>
+                    {% endfor %} 
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
